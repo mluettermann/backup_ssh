@@ -63,7 +63,9 @@ To perform the backup automatically, you can set up a `cron` job or `launchd` se
 ## Crobtab
 
 `echo "0 14 * * * $HOME/ssh-backup/backup.sh" > /tmp/cron_job`  #This entry would execute the backup.sh script every day at 02:00 PM.
+
 `crontab -l | cat - /tmp/cron_job | crontab -`
+
 `crontab -l`
 
 Add the `.plist` file to `~/Library/LaunchAgents` and load it with `launchctl` to configure automatic execution.
