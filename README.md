@@ -29,8 +29,7 @@ To run the script manually, open a terminal and execute the following command:Re
 
 ## Automation
 
-To perform the backup automatically, you can set up a `cron` job or `launchd` service. An example `.plist` file for `launchd` might look like this:Codepenxml
-
+To perform the backup automatically, you can set up a `cron` job or `launchd` service. An example `.plist` file for `launchd` might look like this
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,6 +58,10 @@ To perform the backup automatically, you can set up a `cron` job or `launchd` se
 </dict>
 </plist>
 ```
+Add the `.plist` file to `~/Library/LaunchAgents` and load it with `launchctl` to configure automatic execution.
+
+`launchctl load ~/Library/LaunchAgents/com.yourUsername.ssh-backup.plist`
+
 
 ## Crobtab
 
@@ -67,8 +70,6 @@ To perform the backup automatically, you can set up a `cron` job or `launchd` se
 `crontab -l | cat - /tmp/cron_job | crontab -`
 
 `crontab -l`
-
-Add the `.plist` file to `~/Library/LaunchAgents` and load it with `launchctl` to configure automatic execution.
 
 
 ## Author
